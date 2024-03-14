@@ -37,7 +37,7 @@ def transform_text(text):
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
-st.title("Smishing: SMS Phishing Detection using Machine Learning and NLP Techniques")
+st.title("Smishing Attach Detection")
 
 input_sms = st.text_area("Enter the message")
 
@@ -51,7 +51,7 @@ if st.button('Predict'):
     result = model.predict(vector_input)[0]
     # 4. Display
     if result == 0:
-        st.header("Smishing")
+        st.header(":red[Smishing] :exclamation: :exclamation:")
     else:
-        st.header("Not Smishing")
+        st.header(":green[Ham] :smile:")
 
